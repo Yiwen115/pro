@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>永續發展知識王</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- 開始畫面 -->
+    <div id="startScreen" class="start-screen">
+        <div class="start-content animate__animated animate__fadeIn">
+            <h1>永續發展知識王 🌍</h1>
+            <div class="earth-animation">
+                <div class="clouds"></div>
+                <div class="trees">🌳🌲🌴</div>
+            </div>
+            <p>拯救地球，從你我做起！</p>
+            <div class="game-info">
+                <div class="info-item animate__animated animate__bounceIn">
+                    <span>🌱</span>
+                    <p>種樹減碳</p>
+                </div>
+                <div class="info-item animate__animated animate__bounceIn animate__delay-1s">
+                    <span>💧</span>
+                    <p>澆水成長</p>
+                </div>
+                <div class="info-item animate__animated animate__bounceIn animate__delay-2s">
+                    <span>🎯</span>
+                    <p>達成淨零</p>
+                </div>
+            </div>
+            <button onclick="startGame()" class="start-btn animate__animated animate__pulse animate__infinite">開始挑戰</button>
+        </div>
+    </div>
+
+    <!-- 勝利畫面 -->
+    <div id="victoryScreen" class="victory-screen" style="display: none;">
+        <div class="victory-content animate__animated animate__zoomIn">
+            <h2>🎉 恭喜達成淨零排放！ 🎉</h2>
+            <div class="victory-stats">
+                <p>種植樹木：<span id="finalTrees">0</span> 棵</p>
+                <p>獲得分數：<span id="finalScore">0</span> 分</p>
+            </div>
+            <button onclick="restartGame()" class="restart-btn">再玩一次</button>
+        </div>
+    </div>
+
+    <!-- 遊戲主畫面 -->
+    <div id="gameContainer" class="game-container">
+        <!-- 左側狀態面板 -->
+        <div class="status-panel">
+            <div class="status-item animate__animated animate__fadeInLeft">
+                <span class="label">分數</span>
+                <span id="scoreValue">0</span>
+            </div>
+            <div class="status-item animate__animated animate__fadeInLeft animate__delay-1s">
+                <span class="label">樹木</span>
+                <span id="treeCount">0</span>
+            </div>
+            <div class="status-item animate__animated animate__fadeInLeft animate__delay-2s">
+                <span class="label">碳排放</span>
+                <span id="emissionValue">10</span>
+                <div class="emission-trend"></div>
+            </div>
+        </div>
+
+        <!-- 遊戲區域 -->
+        <div class="game-world">
+            <div class="question-area animate__animated animate__fadeInDown">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div id="questionText"></div>
+                <div class="options-container">
+                    <button class="option" onclick="checkAnswer(0)">
+                        <span class="option-text"></span>
+                    </button>
+                    <button class="option" onclick="checkAnswer(1)">
+                        <span class="option-text"></span>
+                    </button>
+                    <button class="option" onclick="checkAnswer(2)">
+                        <span class="option-text"></span>
+                    </button>
+                    <button class="option" onclick="checkAnswer(3)">
+                        <span class="option-text"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="scene">
+                <div class="clouds-container">
+                    <div class="cloud"></div>
+                    <div class="cloud"></div>
+                </div>
+                <div id="treeContainer"></div>
+                <div class="factory-smoke"></div>
+            </div>
+        </div>
+
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <button onclick="plantSapling()" id="plantButton" class="control-btn animate__animated animate__fadeInRight">
+                🌱 種樹苗 (10分)
+            </button>
+            <button onclick="waterTree()" id="waterButton" class="control-btn animate__animated animate__fadeInRight animate__delay-1s">
+                💧 澆水 (5分)
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
